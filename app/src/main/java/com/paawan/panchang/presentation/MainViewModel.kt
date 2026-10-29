@@ -20,4 +20,11 @@ class MainViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = null
         )
+
+    val isOldDesign: StateFlow<Boolean> = userPreferencesRepository.isOldDesign
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = false
+        )
 }

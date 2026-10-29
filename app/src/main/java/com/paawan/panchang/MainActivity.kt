@@ -24,10 +24,11 @@ class MainActivity : ComponentActivity() {
             val isSystemDark = isSystemInDarkTheme()
             val isDarkModePref by mainViewModel.isDarkMode.collectAsState()
             val useDarkTheme = isDarkModePref ?: isSystemDark
+            val isOldDesign by mainViewModel.isOldDesign.collectAsState()
 
             PaawanPanchangTheme(darkTheme = useDarkTheme) {
                 Surface {
-                    PaawanNavGraph()
+                    PaawanNavGraph(isOldDesign = isOldDesign)
                 }
             }
         }

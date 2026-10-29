@@ -24,9 +24,15 @@ class SettingsViewModel @Inject constructor(
             combine(
                 preferencesRepository.isDarkMode,
                 preferencesRepository.userLocation,
-                preferencesRepository.userLanguage
-            ) { isDark, location, lang ->
-                SettingsState(isDarkMode = isDark, location = location, language = lang)
+                preferencesRepository.userLanguage,
+                preferencesRepository.isOldDesign
+            ) { isDark, location, lang, oldDesign ->
+                SettingsState(
+                    isDarkMode = isDark,
+                    location = location,
+                    language = lang,
+                    isOldDesign = oldDesign
+                )
             }.collect { newState ->
                 _state.value = newState
             }
@@ -42,6 +48,12 @@ class SettingsViewModel @Inject constructor(
     fun updateLocation(newLocation: String) {
         viewModelScope.launch {
             preferencesRepository.setLocation(newLocation)
+        }
+    }
+
+    fun toggleOldDesign(enabled: Boolean) {
+        viewModelScope.launch {
+            preferencesRepository.setOldDesign(enabled)
         }
     }
 }

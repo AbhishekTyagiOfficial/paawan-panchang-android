@@ -23,6 +23,7 @@ class UserPreferencesRepository @Inject constructor(
         val KEY_DARK_MODE = booleanPreferencesKey("dark_mode")
         val KEY_LOCATION = stringPreferencesKey("user_location")
         val KEY_LANGUAGE = stringPreferencesKey("user_language")
+        val KEY_OLD_DESIGN = booleanPreferencesKey("Old_Design")
     }
 
     val isDarkMode: Flow<Boolean?> = context.dataStore.data.map { prefs ->
@@ -35,6 +36,10 @@ class UserPreferencesRepository @Inject constructor(
 
     val userLanguage: Flow<String> = context.dataStore.data.map { prefs ->
         prefs[KEY_LANGUAGE] ?: "hi"
+    }
+
+    val isOldDesign: Flow<Boolean> = context.dataStore.data.map { prefs ->
+        prefs[KEY_OLD_DESIGN] ?: false
     }
 
     suspend fun setDarkMode(enabled: Boolean) {
@@ -52,6 +57,12 @@ class UserPreferencesRepository @Inject constructor(
     suspend fun setLanguage(languageCode: String) {
         context.dataStore.edit { prefs ->
             prefs[KEY_LANGUAGE] = languageCode
+        }
+    }
+
+    suspend fun setOldDesign(enabled: Boolean) {
+        context.dataStore.edit { prefs ->
+            prefs[KEY_OLD_DESIGN] = enabled
         }
     }
 }
