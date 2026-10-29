@@ -5,9 +5,11 @@
 /build
 app/build
 /local.properties
+.firebase/
 /.idea
 .DS_Store
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+.firebase/
