@@ -77,12 +77,12 @@ fun SettingsScreenOld(
                 ) {
                     Column(modifier = Modifier.weight(1f).padding(end = 12.dp)) {
                         Text(
-                            text = "A/B Test: Old_Design",
+                            text = "Firebase Remote Config: Old_Design",
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = if (state.isOldDesign) "Old UI is Active (Key: Old_Design=true)" else "New UI/UX is Active (Key: Old_Design=false)",
+                            text = if (state.isOldDesign) "Old UI is Active (RC: Old_Design=true)" else "New UI/UX is Active (RC: Old_Design=false)",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.primary
                         )

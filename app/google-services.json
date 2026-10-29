@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "301465219827",
+    "project_id": "paawan-panchang-app",
+    "storage_bucket": "paawan-panchang-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301465219827:android:a40a38cc963c0ba8573d86",
+        "android_client_info": {
+          "package_name": "com.paawan.panchang"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWamaPq8BzYPMnkr5gE-8Qy99V9huvdDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

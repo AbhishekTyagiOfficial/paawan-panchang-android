@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -81,6 +82,12 @@ dependencies {
 
     // Preferences - DataStore
     implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    // Firebase BoM, Remote Config & Analytics
+    val firebaseBom = platform("com.google.firebase:firebase-bom:33.4.0")
+    implementation(firebaseBom)
+    implementation("com.google.firebase:firebase-config-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
 
     // Background Jobs - WorkManager
     implementation("androidx.work:work-runtime-ktx:2.9.0")

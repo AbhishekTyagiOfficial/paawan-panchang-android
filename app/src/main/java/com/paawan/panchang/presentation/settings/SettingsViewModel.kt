@@ -3,6 +3,7 @@ package com.paawan.panchang.presentation.settings
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.paawan.panchang.data.local.datastore.UserPreferencesRepository
+import com.paawan.panchang.data.remote.config.FirebaseRemoteConfigManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
-    private val preferencesRepository: UserPreferencesRepository
+    private val preferencesRepository: UserPreferencesRepository,
+    private val remoteConfigManager: FirebaseRemoteConfigManager
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(SettingsState())
@@ -55,5 +57,9 @@ class SettingsViewModel @Inject constructor(
         viewModelScope.launch {
             preferencesRepository.setOldDesign(enabled)
         }
+    }
+
+    fun refreshRemoteConfig() {
+        remoteConfigManager.fetchAndApply()
     }
 }

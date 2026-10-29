@@ -1,0 +1,10 @@
+{
+  "parameters": {
+    "Old_Design": {
+      "defaultValue": {
+        "value": "true"
+      },
+      "valueType": "BOOLEAN"
+    }
+  }
+}

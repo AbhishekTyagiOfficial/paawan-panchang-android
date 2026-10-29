@@ -305,11 +305,11 @@ fun SettingsScreen(
         }
 
         // =========================================================================
-        // 5. Section: UI A/B Testing
+        // 5. Section: UI A/B Testing (Firebase Remote Config)
         // =========================================================================
         SacredSectionHeader(
-            title = "यूआई ए/बी परीक्षण (A/B Testing)",
-            subtitle = "Design Variant Toggle (Key: Old_Design)"
+            title = "Firebase Remote Config (A/B Test)",
+            subtitle = "Controlled via Firebase Console (Key: Old_Design)"
         )
 
         PaawanCard(
@@ -344,13 +344,13 @@ fun SettingsScreen(
                     Spacer(modifier = Modifier.width(14.dp))
                     Column {
                         Text(
-                            text = "Old_Design (A/B Test)",
+                            text = "Old_Design (Firebase RC)",
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurface
                         )
                         Text(
-                            text = if (state.isOldDesign) "Old UI is active (Key: Old_Design=true)" else "New UI/UX is active (Key: Old_Design=false)",
+                            text = if (state.isOldDesign) "Old UI is active (RC: Old_Design=true)" else "New UI/UX is active (RC: Old_Design=false)",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.primary
                         )
